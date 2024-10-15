@@ -12,7 +12,7 @@ use univDB;
 create table 학생 (
   학번 char(4) not null,
   이름 varchar(20) not null,
-	주소 varchar(50) null default '미정',
+  주소 varchar(50) null default '미정',
   학년 int null,
   나이 int null,
   성별 char(1) not null,
