@@ -92,6 +92,7 @@
     - `DECLARE 지역변수명 타입`
   - `END`
   <br>
+  
   ```sql
   DELIMITER //
   CREATE PROCEDURE InsertOrUpdateCourse(
