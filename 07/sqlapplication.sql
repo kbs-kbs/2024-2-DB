@@ -51,43 +51,45 @@ insert into 수강 values ('s004', 'c003', '2019-09-03', 91, 94, 'A');
 insert into 수강 values ('s001', 'c005', '2019-09-03', 94, 79, 'C');
 insert into 수강 values ('s003', 'c001', '2019-03-03', 81, 92, 'B');
 insert into 수강 values ('s004', 'c002', '2019-03-05', 92, 95, 'A');
+
 show tables;
+
 desc 과목;
+
 select * from 과목;
 select * from 학생;
 select * from 수강;
-SELECT ABS(+17), ABS(-17), CEIL(3.28), FLOOR(4.259);
+
+SELECT ABS(+17) as '절댓값(+17)', ABS(-17) as '절댓값(+17)', CEIL(3.28) as '올림(3.28)', FLOOR(4.259) as '내림(4.29)';
+
+SELECT 학번, SUM(기말성적)/COUNT(*), ROUND(SUM(기말성적)/COUNT(*), 2)
+FROM 수강
+GROUP BY 학번;
+
 SELECT 
-	학번
-    , SUM(기말성적)/COUNT(*)
-    , ROUND(SUM(기말성적)/COUNT(*), 2) -- 입력 값을 소수점이하 자리수까지 반올림한 값 반환
-  FROM 수강
- GROUP BY 학번;
-SELECT 
-  substring(주소,1,2),
-  substr(주소,1,2)
-    , 주소
-    , REPLACE(SUBSTRING(휴대폰번호,5,9),'-',',') AS 폰변호추출값-- 5자리부터 시작해서 이후 9자리까지
-    , 휴대폰번호
-    , 주소
-    FROM 학생;
+substring(주소,1,2),
+substr(주소,1,2),
+주소,
+REPLACE(SUBSTRING(휴대폰번호, 5, 9), '-', ','),
+휴대폰번호,
+주소
+FROM 학생;
 
 SELECT
-  신청날짜,
-  LAST_DAY(신청날짜)	-- 마지막날 반환
+신청날짜,
+LAST_DAY(신청날짜) -- 마지막날 반환
 FROM 수강
 WHERE YEAR(신청날짜) = '2019';
- 
-SELECT
-  SYSDATE(),
-  DATEDIFF(신청날짜, '2019-01-01'),	-- 신청날짜 기분 날짜수 차이 반환
-  신청날짜
-FROM 수강;
 
 SELECT
-  신청날짜,
-  DATE_FORMAT(신청날짜, '%b/%d/%y'),
-  DATE_FORMAT(신청날짜, '%Y년%c월%e일')
+SYSDATE(),
+DATEDIFF(신청날짜, '2019-01-01'),	-- 신청날짜 기분 날짜수 차이 반환
+신청날짜
+FROM 수강;
+
+SELECT 신청날짜,
+DATE_FORMAT(신청날짜, '%b/%d/%y'),
+DATE_FORMAT(신청날짜, '%Y년%c월%e일')
 FROM 수강;
 
 delimiter //
@@ -113,7 +115,7 @@ ELSE
 		  where 과목번호 = CourseNo;
 	END IF;
 END //
-DELIMITER ;
+delimiter ;
 
 -- 'InsertOrUpdateCourse' 저장 프로시저를 호출하여 '과목' 테이블에 '연극학개론'과목을 등록하시오.
 -- 연극학개론 정보가 과목 테이블에 등록되어 있는지 확인한다.
