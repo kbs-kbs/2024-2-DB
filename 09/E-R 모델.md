@@ -1,10 +1,12 @@
 ## E-R 모델
 - 개념적 모델링에 쓰이는 대표적인 모델
 - 관계형 모델은 논리적 모델링에 쓰이는 모델
-- 현실 세계 -(개념적 모델링)-> E-R 모델 -(논리적 모델링)-> 관계형 모델 -(물리적 모델링)-> 관계형 데이터베이스
 
 $$
-\text{현실 세계}\overset{개념적\ 모델링}{\text{—————————}\longrightarrow}\text{E-R 모델}\overset{논리적\ 모델링}{\text{─────────}\longrightarrow}\text{관계형 모델}
+\text{현실 세계}\overset{개념적\ 모델링}{\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—→}
+\text{E-R 모델}\overset{논리적\ 모델링}{\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—→}
+\text{관계형 모델}\overset{물리적\ 모델링}{\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—\llap—→}
+\text{관계형 데이터베이스}
 $$
 
 ## E-R 다이어그램
