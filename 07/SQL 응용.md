@@ -136,6 +136,7 @@
   - `AFTER|BEFORE INSERT|UPDATE|DELETE ON 속성 FOR EACH ROW`
   - `BEGIN`, `END`
   <br>
+  
   ```sql
   DELIMITER //
   CREATE TRIGGER after_insert_stu
