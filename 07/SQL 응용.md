@@ -66,16 +66,16 @@
   CREATE FUNCTION fn_grade(grade CHAR(1))
   RETURNS VARCHAR(10)
   BEGIN
-	  DECLARE ret_grade VARCHAR(10);
+    DECLARE ret_grade VARCHAR(10);
     IF (grade = 'A') THEN
-	    SET ret_grade = '최우수';
-	  ELSEIF (grade = 'B') THEN
-	    SET ret_grade = '우수';
-	  ELSEIF (grade = 'C') THEN
-	    SET ret_grade = '보통';
-	  ELSEIF (grade = 'D' OR grade = 'F') THEN
-	    SET ret_grade = '미흡';
-	  END IF;
+      SET ret_grade = '최우수';
+    ELSEIF (grade = 'B') THEN
+      SET ret_grade = '우수';
+    ELSEIF (grade = 'C') THEN
+      SET ret_grade = '보통';
+    ELSEIF (grade = 'D' OR grade = 'F') THEN
+      SET ret_grade = '미흡';
+    END IF;
     RETURN ret_grade;
   END//
   DELIMITER ;
