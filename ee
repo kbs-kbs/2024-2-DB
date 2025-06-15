@@ -1,0 +1,36 @@
+journeys = []
+complete_cells = []
+food = 0
+
+def solution(maps):
+    global complete_cells
+    global food
+    max_col = len(maps[0])
+    max_row = len(maps)
+    cells = [(col, row) for row in range(1, max_row + 1) for col in range(1, max_col + 1)]
+    journey(maps, 1, 1)
+    journeys.append((complete_cells, food))
+    food = 0
+    for cell in cells:
+        if not cell in complete_cells:
+            journey(maps, cell[0], cell[1])
+            journeys.append((complete_cells, food))
+            food = 0
+    return [journey[1] for journey in journeys]
+
+def journey(maps, col, row):
+    global complete_cells
+    global food
+    max_col = len(maps[0])
+    max_row = len(maps)
+    if 0 < col <= max_col and 0 < row <= max_row:
+        complete_cells.append((col, row))
+        letter = list(maps[row - 1])[col - 1]
+        if letter != 'X':
+            food += int(letter)
+            try:
+                for col, row in [(row - 1, col), (row, col - 1), (row, col + 1), (row + 1, col)]:
+                    if not (col, row) in complete_cells:
+                        journey(maps, col, row)
+            except:
+                pass
